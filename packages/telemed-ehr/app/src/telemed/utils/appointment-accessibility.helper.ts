@@ -34,6 +34,9 @@ export const getAppointmentAccessibilityData = ({
   appointment,
   user,
 }: GetAppointmentAccessibilityDataProps): GetAppointmentAccessibilityDataResult => {
+
+console.log(`GetAppointmentAccessibilty`);
+
   const allLicenses = user?.profileResource && allLicensesForPractitioner(user.profileResource);
   const availableStates = allLicenses?.map((item) => item.state);
   const state = location?.address?.state;
