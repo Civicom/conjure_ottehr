@@ -21,17 +21,26 @@ async function getPatientsAndRelatedPersons(
   relatedPersons: RelatedPerson[] | null;
   total: number;
 }> {
+
+console.log(`searchParams:`);
+searchParams.forEach((param) => {
+console.log(`   ${param.name} = ${param.value}`);
+
+});
+
   // Search for Patients
   const patientBundle = await fhirClient.searchResourcesReturnBundle({
     resourceType: 'Patient',
     searchParams: searchParams,
   });
 
+  console.log(`patientbudletotal: ${patientBundle.total}`);
+
   const extractedPatients = patientBundle.entry
     ?.filter((entry) => entry.resource?.resourceType === 'Patient')
     .map((entry) => entry.resource as Patient);
 
-  // Search for RelatedPersons
+// Search for RelatedPersons
   let extractedRelatedPersons = null;
   if (extractedPatients?.length) {
     const digits = submittedPhone?.replace(/\D/g, '');
@@ -60,6 +69,7 @@ async function getPatientsAndRelatedPersons(
       })
       .filter((relatedPerson) => relatedPerson !== null);
   }
+  console.log(`extractedRelatedPersons?.entries.length = ${extractedRelatedPersons?.entries.length}`);
 
   return {
     patients: extractedPatients ?? null,
@@ -128,14 +138,16 @@ export default function PatientsPage(): ReactElement {
 
       const fhirSearchParams: SearchParam[] = getPatientNameSearchParams({ submittedName: submittedName || undefined });
       const digits = submittedPhone?.replace(/\D/g, '');
+      
       if (submittedPhone) {
         fhirSearchParams.push({ name: '_has:RelatedPerson:patient:phone', value: `${digits},+1${digits}` });
       } else {
         fhirSearchParams.push({ name: '_has:RelatedPerson:patient:phone:missing', value: 'false' });
       }
-
+      
+console.log(`calling getPatientsAndRelatedPersons`);
       const resources = await getPatientsAndRelatedPersons(fhirSearchParams, submittedPhone, fhirClient);
-
+console.log(`getPatientsAndRelatedPersons returned ${resources.patients?.length} ${resources.total}`);
       setPatients(resources.patients);
       setRelatedPersons(resources.relatedPersons);
       setTotalPatients(resources.total);
