@@ -90,7 +90,6 @@ export const AppointmentPage: FC = () => {
         <AppointmentTabs />
       </Container>
 
-      <AppointmentFooter />
     </Box>
   );
 };
