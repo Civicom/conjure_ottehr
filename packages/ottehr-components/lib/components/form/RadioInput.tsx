@@ -12,10 +12,10 @@ import {
 import { FC, SyntheticEvent } from 'react';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { customRadioButtonCheckedIcon, customRadioButtonUncheckedIcon } from '../../assets';
 import { RadioOption, RadioStyling } from '../../types';
 import { BoldPurpleInputLabel } from './BoldPurpleInputLabel';
 import { InputHelperText } from './InputHelperText';
+import CustomRadioButtonIcon from './CustomRadioButtonIcon';
 
 type RadioInputProps = {
   name: string;
@@ -42,7 +42,7 @@ const RadioInput: FC<RadioInputProps> = ({
   helperText,
   showHelperTextIcon,
   borderColor = 'primary.contrast',
-  borderSelected = 'primary.main',
+  borderSelected = 'secondary.main',
   backgroundSelected,
   getSelected,
   centerImages,
@@ -106,17 +106,25 @@ const RadioInput: FC<RadioInputProps> = ({
                     control={
                       <Radio
                         icon={
-                          <Icon sx={{ display: 'flex', justifyContent: 'center', scale: '75%' }}>
-                            <img src={customRadioButtonUncheckedIcon} alt={t('general.button.unchecked')} />
+                          <Icon sx={{ display: 'flex', justifyContent: 'center', scale: '100%', mx: 0.5 }}>
+                            <CustomRadioButtonIcon
+                              color={theme.palette.secondary}
+                              checked={false}
+                              alt={t('general.button.unchecked')}
+                            />
                           </Icon>
                         }
                         checkedIcon={
-                          <Icon sx={{ display: 'flex', justifyContent: 'center', scale: '75%' }}>
-                            <img src={customRadioButtonCheckedIcon} alt={t('general.button.checked')} />
+                          <Icon sx={{ display: 'flex', justifyContent: 'center', scale: '100%', mx: 0.5 }}>
+                            <CustomRadioButtonIcon
+                              color={theme.palette.secondary}
+                              checked={true}
+                              alt={t('general.button.checked')}
+                            />
                           </Icon>
                         }
                         sx={{
-                          alignSelf: 'start',
+                          alignSelf: 'center',
                           mt: '8px',
                           // If screen is smaller than small breakpoint
                           [theme.breakpoints.down('md')]: {
@@ -165,10 +173,9 @@ const RadioInput: FC<RadioInputProps> = ({
                                 style={{
                                   lineHeight: '20px',
                                   // spacing between label and description
-                                  marginTop: option.label ? '5px' : 0,
                                 }}
                               >
-                                <Typography variant={option.label ? 'caption' : 'body2'} color="secondary.main">
+                                <Typography variant={option.label ? 'caption' : 'body2'} color="primary.main">
                                   {option.description}
                                 </Typography>
                               </div>
