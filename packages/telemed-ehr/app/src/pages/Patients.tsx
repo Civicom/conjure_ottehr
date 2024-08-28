@@ -69,7 +69,6 @@ console.log(`   ${param.name} = ${param.value}`);
       })
       .filter((relatedPerson) => relatedPerson !== null);
   }
-  console.log(`extractedRelatedPersons?.entries.length = ${extractedRelatedPersons?.entries.length}`);
 
   return {
     patients: extractedPatients ?? null,
