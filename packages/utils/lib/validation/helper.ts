@@ -11,7 +11,7 @@ export function ageIsInRange(dateOfBirth: string, min: number, max: number): Age
   const iso = isoStringFromMDYString(dateOfBirth);
   const age = Math.floor(-DateTime.fromISO(iso).diffNow('years').years);
   const isBorn = age >= min;
-  const notTooOld = age <= max;
+  const notTooOld = max > 0 ? age <= max : true;
 
   return {
     result: isBorn && notTooOld,
