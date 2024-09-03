@@ -268,7 +268,7 @@ functions:
       AUTH0_AUDIENCE: ${file(./.env/${self:provider.stage}.json):AUTH0_AUDIENCE}
       PROJECT_API: ${file(./.env/${self:provider.stage}.json):PROJECT_API}
       ENVIRONMENT: ${file(./.env/${self:provider.stage}.json):ENVIRONMENT}
-
+      NLM_API_KEY: ${file(./.env/${self:provider.stage}.json):NLM_API_KEY}
 plugins:
   - serverless-offline
   - serverless-esbuild
