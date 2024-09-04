@@ -17,11 +17,11 @@ export const MedicalHistoryTab: FC = () => {
       }}
     >
       <ChiefComplaintCard />
-      <CurrentMedicationsCard />
+      {/*<CurrentMedicationsCard />
       <KnownAllergiesCard />
       <MedicalConditionsCard />
       <SurgicalHistoryCard />
-      <AdditionalQuestionsCard />
+      <AdditionalQuestionsCard /> */}
     </Box>
   );
 };
