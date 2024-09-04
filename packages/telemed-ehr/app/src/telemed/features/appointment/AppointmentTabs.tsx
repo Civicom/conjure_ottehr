@@ -38,7 +38,7 @@ export const AppointmentTabs: FC = () => {
     <TabContext value={currentTab}>
       <TabPanel value="hpi" sx={{ p: 0 }}>
         <MedicalHistoryTab />
-      </TabPanel>
+      </TabPanel>{/*
       <TabPanel value="exam" sx={{ p: 0 }}>
         <ExamTab />
       </TabPanel>
@@ -47,7 +47,7 @@ export const AppointmentTabs: FC = () => {
       </TabPanel>
       <TabPanel value="plan" sx={{ p: 0 }}>
         <PlanTab />
-      </TabPanel>
+      </TabPanel>*/}
       <TabPanel value="sign" sx={{ p: 0 }}>
         <ReviewTab />
       </TabPanel>

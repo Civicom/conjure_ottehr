@@ -24,6 +24,8 @@ export const AdditionalQuestionsPatientColumn: FC = () => {
         gap: 1,
       }}
     >
+      
+      {/*
       <Box
         sx={{
           display: 'flex',
@@ -39,7 +41,9 @@ export const AdditionalQuestionsPatientColumn: FC = () => {
           <Typography>{fluVaccine}</Typography>
         )}
       </Box>
-      <Divider />
+      */}
+      {/*
+      <Divider /> 
       <Box
         sx={{
           display: 'flex',
@@ -56,6 +60,8 @@ export const AdditionalQuestionsPatientColumn: FC = () => {
         )}
       </Box>
       <Divider />
+      */}
+      {/*
       <Box
         sx={{
           display: 'flex',
@@ -72,6 +78,8 @@ export const AdditionalQuestionsPatientColumn: FC = () => {
         )}
       </Box>
       <Divider />
+      */}
+      {/*
       <Box
         sx={{
           display: 'flex',
@@ -87,6 +95,7 @@ export const AdditionalQuestionsPatientColumn: FC = () => {
           <Typography>{hospitalize}</Typography>
         )}
       </Box>
+*/}
     </Box>
-  );
+    );
 };

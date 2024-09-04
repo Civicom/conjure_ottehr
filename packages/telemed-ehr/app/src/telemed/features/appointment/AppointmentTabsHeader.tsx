@@ -21,12 +21,13 @@ export const AppointmentTabsHeader: FC = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
               <AssignmentIndOutlinedIcon />
               <Typography sx={{ textTransform: 'none', fontWeight: 700, fontSize: '14px' }}>
-                HPI and Medical history
+                Notes
+                {/*HPI and Medical history*/}
               </Typography>
             </Box>
           }
           value="hpi"
-        />
+        />{/*
         <Tab
           label={
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
@@ -55,7 +56,7 @@ export const AppointmentTabsHeader: FC = () => {
             </Box>
           }
           value="plan"
-        />
+        />*/}
         <Tab
           label={
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
