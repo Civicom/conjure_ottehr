@@ -11,10 +11,11 @@ import { useAppointmentStore } from '../../../../state';
 export const AdditionalQuestionsCard: FC = () => {
   const [isAdditionalQuestionsCollapsed, setIsAdditionalQuestionsCollapsed] = useState(false);
   const { isChartDataLoading } = getSelectors(useAppointmentStore, ['isChartDataLoading']);
+    {/* label="Additional questions" */}
 
   return (
     <MedicalHistoryDoubleCard
-      label="Additional questions"
+      label="Notes"
       collapsed={isAdditionalQuestionsCollapsed}
       onSwitch={() => setIsAdditionalQuestionsCollapsed((state) => !state)}
       patientSide={<AdditionalQuestionsPatientColumn />}

@@ -16,12 +16,12 @@ export const MedicalHistoryTab: FC = () => {
         gap: 1,
       }}
     >
-      <ChiefComplaintCard />
+      {/*<ChiefComplaintCard />
       <CurrentMedicationsCard />
       <KnownAllergiesCard />
       <MedicalConditionsCard />
-      <SurgicalHistoryCard />
-      <AdditionalQuestionsCard />
+      <SurgicalHistoryCard />*/}
+      <AdditionalQuestionsCard /> 
     </Box>
   );
 };
