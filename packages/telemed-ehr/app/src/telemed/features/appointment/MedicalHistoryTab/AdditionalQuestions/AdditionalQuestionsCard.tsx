@@ -14,6 +14,7 @@ export const AdditionalQuestionsCard: FC = () => {
     {/* label="Additional questions" */}
 
   return (
+    
     <MedicalHistoryDoubleCard
       label="Notes"
       collapsed={isAdditionalQuestionsCollapsed}
