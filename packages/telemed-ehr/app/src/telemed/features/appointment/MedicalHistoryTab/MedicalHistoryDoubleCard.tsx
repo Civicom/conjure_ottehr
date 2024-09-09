@@ -17,7 +17,7 @@ export const MedicalHistoryDoubleCard: FC<MedicalHistoryDoubleCardProps> = (prop
     <AccordionCard label={label} collapsed={collapsed} onSwitch={onSwitch}>
           <>
             <UppercaseCaptionTypography sx={{ color: otherColors.orange700, pb: 2 }}>
-              Provider
+
             </UppercaseCaptionTypography>
             {providerSide}
           </>

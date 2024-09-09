@@ -34,7 +34,7 @@ export const AdditionalQuestionsProviderColumn: FC = () => {
           label="Provider Notes"
           fullWidth
           multiline
-          rows={24}
+          rows={12}
         />
       )}
     />
