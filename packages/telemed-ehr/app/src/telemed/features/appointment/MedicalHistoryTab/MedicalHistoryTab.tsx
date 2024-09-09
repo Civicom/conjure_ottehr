@@ -13,7 +13,7 @@ export const MedicalHistoryTab: FC = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 1,
+        gap: 5,
       }}
     >
       {/*<ChiefComplaintCard />
