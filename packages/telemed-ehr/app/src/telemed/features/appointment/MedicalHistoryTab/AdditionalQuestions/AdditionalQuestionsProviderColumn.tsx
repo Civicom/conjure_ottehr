@@ -31,7 +31,7 @@ export const AdditionalQuestionsProviderColumn: FC = () => {
             onChange(e);
             onValueChange(e.target.value);
           }}
-          label="Provider notes"
+          label="Provider Notes"
           fullWidth
           multiline
           rows={24}
