@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
 export const MINIMUM_AGE = 5;
-export const MAXIMUM_AGE = 26;
+export const MAXIMUM_AGE = 0;
 export const DATETIME_FULL_NO_YEAR = 'MMMM d, h:mm a ZZZZ';
 export const DATE_FULL_NO_YEAR = 'EEEE, MMMM d';
 
@@ -66,7 +66,7 @@ export function ageIsInRange(dateOfBirth: string): boolean {
   // make sure string is in iso format
   const iso = isoStringFromMDYString(dateOfBirth);
   const age = Math.floor(-DateTime.fromISO(iso).diffNow('years').years);
-  return age >= MINIMUM_AGE && age <= MAXIMUM_AGE;
+  return age >= MINIMUM_AGE && (MAXIMUM_AGE == 0 || age <= MAXIMUM_AGE);
 }
 
 export function createMinimumAndMaximumTime(date: DateTime, buffer?: number): { minimum: DateTime; maximum: DateTime } {

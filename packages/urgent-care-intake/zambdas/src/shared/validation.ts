@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
 export const MINIMUM_AGE = 0;
-export const MAXIMUM_AGE = 26;
+export const MAXIMUM_AGE = 0;
 export const MAXIMUM_CHARACTER_LIMIT = 160;
 export const alphanumericRegex = /^[a-zA-Z0-9]+/;
 export const emailRegex = /^\S+@\S+\.\S+$/;
@@ -15,5 +15,5 @@ export const phoneRegex = /^(\+1)?\d{10}$/;
 
 export function ageIsInRange(dateOfBirth: string): boolean {
   const age = Math.floor(-DateTime.fromISO(dateOfBirth).diffNow('years').years);
-  return age >= MINIMUM_AGE && age <= MAXIMUM_AGE;
+  return age >= MINIMUM_AGE && (MAXIMUM_AGE == 0 || age <= MAXIMUM_AGE);
 }
