@@ -22,12 +22,6 @@ async function getPatientsAndRelatedPersons(
   total: number;
 }> {
 
-console.log(`searchParams:`);
-searchParams.forEach((param) => {
-console.log(`   ${param.name} = ${param.value}`);
-
-});
-
   // Search for Patients
   const patientBundle = await fhirClient.searchResourcesReturnBundle({
     resourceType: 'Patient',
@@ -137,14 +131,18 @@ export default function PatientsPage(): ReactElement {
 
       const fhirSearchParams: SearchParam[] = getPatientNameSearchParams({ submittedName: submittedName || undefined });
       const digits = submittedPhone?.replace(/\D/g, '');
-      
+      /*
       if (submittedPhone) {
         fhirSearchParams.push({ name: '_has:RelatedPerson:patient:phone', value: `${digits},+1${digits}` });
       } else {
         fhirSearchParams.push({ name: '_has:RelatedPerson:patient:phone:missing', value: 'false' });
       }
-      
-console.log(`calling getPatientsAndRelatedPersons`);
+      */
+console.log(`calling getPatientsAndRelatedPersons searchParams:`);
+fhirSearchParams.forEach((fhirSearchParams) => {
+  console.log(`   ${fhirSearchParams.name} = ${fhirSearchParams.value}`);
+});
+
       const resources = await getPatientsAndRelatedPersons(fhirSearchParams, submittedPhone, fhirClient);
 console.log(`getPatientsAndRelatedPersons returned ${resources.patients?.length} ${resources.total}`);
       setPatients(resources.patients);
